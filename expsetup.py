@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar  7 17:01:47 2021
-
-@author: orteg
-"""
-from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.metrics import average_precision_score, roc_auc_score, f1_score
-from sklearn.model_selection import ParameterGrid
-from sklearn.svm import SVC
 from pos_noisyneg.spyEM import SpyEM
 from pos_noisyneg.elkannoto import WeightedElkanotoPuClassifier
 from pos_noisyneg.rankpruning import RankPruning
@@ -16,12 +6,17 @@ from pos_noisyneg.PU_bagging import BaggingPuClassifier
 from pu_tree_simplified._pu_randomforest import PURandomForestClassifier as PURF_SIMP
 from pu_tree_simplified._pu_classes import DecisionTreeClassifier
 
-from imblearn.over_sampling import ADASYN
 from ecsmodels.methodologies.cs_boost import CSBoost
 
-
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.metrics import average_precision_score, roc_auc_score, f1_score
+from sklearn.model_selection import ParameterGrid
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+
+from imblearn.over_sampling import ADASYN
+
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -830,4 +825,4 @@ df_ref['f1_rnkpr'] = list_f1_rnkpr
 df_ref['f1_ci_rnkpr'] = list_f1_ci_rnkpr
 df_ref['f1_max_rnkpr'] = list_f1_max_rnkpr
 
-df_ref.to_csv('ecml_expsetup_f1score_extraDatasets.csv', index=False)
+df_ref.to_csv('results.csv', index=False)
