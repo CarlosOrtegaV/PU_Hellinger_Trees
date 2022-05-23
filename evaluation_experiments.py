@@ -45,17 +45,13 @@ def bonfholm_test(num_models, num_datasets, model_names, model_ranks, alpha, con
   return model_names[ix_min_], model_names_[decision], p_values
 
 ## Load Data
-# df = pd.read_csv('experimental_results_partial_extra_datasets.csv')
 
-df = pd.read_csv('experimental_results_3extra_datasets.csv')
+df = pd.read_csv('experimental_results.csv')
 
 
 cols = ['data_partition','flip_ratio','label_noise']
 
-cond = 'flip_ratio == "0.75" & (dataset == "chile" | dataset == "shuttle" | dataset == "poker-8_vs_6" | dataset == "mammography" | dataset == "satellite" | dataset == "cover" | dataset == "fraud_creditcard" | dataset == "fraud_car_insur" | dataset == "korean5" | dataset == "pizzacutter1" | dataset == "thryoid" | dataset == "cargood" | dataset == "yeast6" | dataset == "kddcup-land_vs_portsweep" | dataset == "pendigits" ) '
-# cond = 'flip_ratio == "0.75" & (dataset == "chile" | dataset == "korean5" | dataset == "mammography" | dataset == "satellite" | dataset == "cover" | dataset == "fraud_creditcard" | dataset == "fraud_car_insur" | dataset == "winequality" | dataset == "pizzacutter1" | dataset == "piechart2" ) '
-
-# cond = 'flip_ratio == "0.75"'
+cond = 'flip_ratio == "0.25"'
 
 df_ = df.copy()
 df_ = df_.query(cond)
